@@ -1,0 +1,45 @@
+.title{
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+.main_container{
+  display: flex;
+ flex-direction: row; 
+ margin-top: 3%;
+ justify-content: space-evenly;
+
+}
+.input_form{
+  color: black;
+}
+.centered_flexbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blocktext {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em
+}
+.top_ten_container{
+  display: flex;
+  flex-direction: row; 
+  margin-top: 2%;
+  justify-content: space-evenly;
+}
+.top_ten_element{
+  font-style: italic;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+p{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+div{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
