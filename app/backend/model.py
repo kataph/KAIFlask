@@ -1,11 +1,11 @@
-GERMAN_MINSTREL_ADDRESS = "" # to input
+GERMAN_MINSTREL_ADDRESS = "http://wookilx.ewh:5000/v1/completions" # to input
 MAX_TOKENS = 800
 
 
 if GERMAN_MINSTREL_ADDRESS == "":
-    GERMAN_MINSTREL_ADDRESS = input("Please insert the api address")
+    GERMAN_MINSTREL_ADDRESS = input("You have not inserted the address, please insert the api address now [write 'local' if you are using the colab notebook]: ")
 if GERMAN_MINSTREL_ADDRESS == "":
-    raise NotImplementedError("Please insert a non-empty address")
+    raise NotImplementedError("Please remember to insert a non-empty address")
 
 import requests
 
@@ -32,6 +32,10 @@ class GermanMinstrel(Model):
         }
         response = requests.post(self.url, headers=self.headers, json=data, verify=False)
         return response.json()['choices'][0]['text']
+
+class LocalGermanMinstrel(Model):
+    def __call__(self, prompt) -> str:
+        raise NotImplementedError("Implemented on colab")
 
 class DummyModel(Model): # to use for testing 
     def __call__(context_prompt, user_request) -> str:
