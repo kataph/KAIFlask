@@ -6,3 +6,6 @@ The front-end interface shows the story so far, the last portion of the story pr
 
 The model tested was the German minstrel model, so German story generation was tested, but one would need just to add the call the appropriate model in the model.py file to change the prompted model. The German minstrel model, was hosted on oobabooga, so it is called through the corresponding api (and the api access point must be specified in the model.py/GERMAN_MINSTREL_MODEL variable). 
 
+![image](https://github.com/kataph/KAIFlask/assets/45362285/a6c09854-faa6-4826-bdc7-12437b5e1cd7)
+
+
