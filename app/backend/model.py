@@ -1,4 +1,4 @@
-GERMAN_MINSTREL_ADDRESS = "http://wookilx.ewh:5000/v1/completions" # to input
+GERMAN_MINSTREL_ADDRESS = "" # to input
 MAX_TOKENS = 800
 
 

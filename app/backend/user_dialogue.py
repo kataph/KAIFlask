@@ -49,12 +49,15 @@ def query_user(model_answer) -> str:
     user_input = input(user_query)
     return user_input
 
-def ask_model(user_input) -> None:
+def ask_model(user_input, alternative_model = None) -> None:
     print("I asked the model")
     full_story = get_full_story()
     story_window = full_story[:-story_window_length]
     # TODO deactivate submit button
-    model_answer =  model(story_window + "\n" + user_input)
+    if not alternative_model:
+        model_answer =  model(story_window + "\n" + user_input)
+    else if alternative_model:
+        model_answer =  alternative_model(story_window + "\n" + user_input)
     # redeactivate submit button
     append_to_full_story("\n" + user_input + " " + model_answer)
     write_last_story_portion(user_input + " " + model_answer)
