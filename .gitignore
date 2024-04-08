@@ -1,1 +1,10 @@
 test&results/
+__pycache__
+app/backend/__pycache__/__init__.cpython-312.pyc
+app/__pycache__/__init__.cpython-312.pyc
+app/backend/__pycache__/__init__.cpython-312.pyc
+app/backend/__pycache__/mainbu.cpython-312.pyc
+app/backend/__pycache__/model.cpython-312.pyc
+app/backend/__pycache__/user_dialogue.cpython-312.pyc
+app/backend/__pycache__/
+app/backend/__pycache__
