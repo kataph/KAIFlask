@@ -56,7 +56,7 @@ def ask_model(user_input, alternative_model = None) -> None:
     # TODO deactivate submit button
     if not alternative_model:
         model_answer =  model(story_window + "\n" + user_input)
-    else if alternative_model:
+    elif alternative_model:
         model_answer =  alternative_model(story_window + "\n" + user_input)
     # redeactivate submit button
     append_to_full_story("\n" + user_input + " " + model_answer)
