@@ -54,6 +54,7 @@ def ask_model(user_input, alternative_model = None) -> None:
     full_story = get_full_story()
     story_window = full_story[:-story_window_length]
     # TODO deactivate submit button
+    print(f"The model is {alternative_model} and not alternative_model is {not alternative_model}")
     if not alternative_model:
         model_answer = model(story_window + "\n" + user_input)
     elif alternative_model:
