@@ -28,7 +28,7 @@ def keep_going():
     if app.config["IS_COLAB"]:
         alternative_model = mainbu.localModel
         alternative_model.__call__ = lambda x: "zzz zzz zzz"
-    backend.user_dialogue.ask_model(user_input)
+    backend.user_dialogue.ask_model(user_input, alternative_model = alternative_model)
     first_access=False
     return render_template('homepage.html', full_story=backend.get_full_story(), last_story_portion=backend.get_last_story_portion(), first_cap="Begin a new story"*first_access + "Continue the story"*( not first_access), second_cap="Write the incipit here"*first_access + "How will it continue?"*( not first_access))
 

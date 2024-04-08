@@ -30,6 +30,8 @@ class GermanMinstrel(Model):
             #'top_p': 0.9,
             #'seed': 20,
         }
+        if self.url == "local":
+            raise TypeError("POST request is being sent to invalid 'local' url.")
         response = requests.post(self.url, headers=self.headers, json=data, verify=False)
         return response.json()['choices'][0]['text']
 
