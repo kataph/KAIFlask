@@ -10,15 +10,22 @@
 
 <div class="main_container">
     
-    <div id ="full_story"> 
+    <div> 
         <p style="font-size: large;"> <b>Story so far</b></p>
         <textarea class="input_form" name="full_story" rows="20" cols="40" id="full_story"
-        placeholder="Here will appear the story" required>{{ full_story }}</textarea>
+        placeholder="Here will appear the story" required>
+     <div id ="full_story">  {{ full_story }} </div> 
+    
+    </textarea>
     </div>
-    <div id="partial_story">
+    <div>
         <p style="font-size: large;"> <b>Previous story portion</b></p>
+        
         <textarea class="input_form" name="last_story_portion" rows="20" cols="40" id="last_story_portion"
-        placeholder="Here will appear the last portion of the story" required>{{last_story_portion}}</textarea>
+        placeholder="Here will appear the last portion of the story" required> 
+      <div id="last_story_portion"> {{last_story_portion}} </div> 
+        
+        </textarea>
     </div>
 <div>
     <p style="font-size: large;"> <b>{{first_cap}}</b></p>
@@ -43,7 +50,7 @@
     // repeat with the interval of 2 seconds
     let timerId2 = setInterval(() => fetch('/get-partial-story')
       .then(response => response.text())
-      .then(text => document.getElementById("partial_story").innerHTML = text), 2000);
+      .then(text => document.getElementById("last_story_portion").innerHTML = text), 2000);
     
     // after 5 seconds stop
     setTimeout(() => { clearInterval(timerId); console.log('stop'); }, 50000);
