@@ -53,8 +53,6 @@ def ask_model(user_input) -> None:
     print("I asked the model")
     full_story = get_full_story()
     story_window = full_story[:-story_window_length]
-    # TODO deactivate submit button
     model_answer =  model(story_window + "\n" + user_input)
-    # redeactivate submit button
     append_to_full_story("\n" + user_input + " " + model_answer)
     write_last_story_portion(user_input + " " + model_answer)

@@ -2,11 +2,12 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mystyle.css' ) }}">
+    <script src="https://unpkg.com/htmx.org@2.0.0" integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="title">
      <h1 class="centered_flexbox" style="color: coral;">KAI Project</h1>
-    </div>
+</div>
 
 <div class="main_container">
     
@@ -17,19 +18,21 @@
     </div>
     <div>
         <p style="font-size: large;"> <b>Previous story portion</b></p>
-        <textarea class="input_form" name="last_story_portion" rows="20" cols="40" id="last_story_portion"
-        placeholder="Here will appear the last portion of the story" required>{{last_story_portion}}</textarea>
+        <textarea hx-get="/textbox" hx-trigger="every 1s" hx-params="none" class="input_form" name="last_story_portion" rows="20" cols="40" id="last_story_portion"
+        placeholder="Here will appear the last portion of the story" required></textarea>
     </div>
-<div>
-    <p style="font-size: large;"> <b>{{first_cap}}</b></p>
-    <form class="input_form" action="{{ url_for('keep_going')}}" method="post"> 
-        <label for="keep_going" style="font-style: italic; color: chocolate;">{{second_cap}}
-            </label><br>
-        <!-- <input type="text" id="keep_going" size="40" heigth="40" name="keep_going"><br> -->
-        <textarea type="text" id="keep_going" size="40" heigth="40" name="keep_going" style="margin-top: 1em;"></textarea><br>
-        <input type="submit" name="Submit" value="Submit">
-    </form>
-</div>
+    <div>
+        <p style="font-size: large;"> <b>{{first_cap}}</b></p>
+        <form class="input_form" action="{{url_for('keep_going')}}" method="post" onSubmit="document.getElementById('submit').disabled=true;"> 
+            <label for="keep_going" style="font-style: italic; color: chocolate;">{{second_cap}}
+                </label><br>
+            <!-- <input type="text" id="keep_going" size="40" heigth="40" name="keep_going"><br> -->
+            <textarea type="text" id="keep_going" size="40" heigth="40" name="keep_going" style="margin-top: 1em;"></textarea><br>
+            <input type="submit" name="submit" id="submit" value="Submit" {{submit_button_status}}>
+        </form>
+    </div>
+
+
 
 </div>
 
