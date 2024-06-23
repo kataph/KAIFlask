@@ -9,6 +9,7 @@ sys.path.append(os.getcwd())
 sys.path.append(os.getcwd() + "\\app")
 import app.backend.mainbu as mainbu
 import app.backend as backend
+import random
 
 first_access = True
 backend.generate_files()
@@ -41,24 +42,15 @@ def delete_files():
         raise TypeError("Wrong method")
     backend.delete_files()
     first_access=True
-    return render_template('homepage.html', first_cap="Begin a new story"*first_access + "Continue the story"*( not first_access), second_cap="Write the incipit here"*first_access + "How will it continue?"*( not first_access))
+    
+    if first_access==True:
+        return render_template('homepage.html', full_story=backend.get_full_story(), last_story_portion=backend.get_last_story_portion(), first_cap="Begin a new story", second_cap="Write the incipit here")
+    if first_access==False:
+        return render_template('homepage.html', full_story=backend.get_full_story(), last_story_portion=backend.get_last_story_portion(), first_cap="Continue the story", second_cap="How will it continue?")
 
-
-####### data service routes
-@app.route('/get-partial-story')
-def get_full_story():
-    file_path = os.path.join(os.getcwd(), 'full_story.txt')
-    with open(file_path, 'r') as file:
-        content = file.read()
-    return content
-
-@app.route('/get-full-story')
-def get_last_story_portion():
-    file_path = os.path.join(os.getcwd(), 'last_story_portion.txt')
-    with open(file_path, 'r') as file:
-        content = file.read()
-    return content
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
+@app.route('/textbox')
+def textbox():
+    # the_answer = random.randint(25, 60)
+    fo = open(file="last_story_portion.txt")
+    the_answer = fo.read()
+    return the_answer   
