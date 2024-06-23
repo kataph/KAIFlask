@@ -1,91 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mystyle.css' ) }}">
-</head>
-<body>
-<div class="title">
-     <h1 class="centered_flexbox" style="color: coral;">KAI Project</h1>
-    </div>
-
-<div class="main_container">
-    
-    <div> 
-        <p style="font-size: large;"> <b>Story so far</b></p>
-        <textarea class="input_form" name="full_story" rows="20" cols="40" id="full_story"
-        placeholder="Here will appear the story" required>
-     <div id ="full_story">  {{ full_story }} </div> 
-    
-    </textarea>
-    </div>
-    <div>
-        <p style="font-size: large;"> <b>Previous story portion</b></p>
-        
-        <textarea class="input_form" name="last_story_portion" rows="20" cols="40" id="last_story_portion"
-        placeholder="Here will appear the last portion of the story" required> 
-      <div id="last_story_portion"> {{last_story_portion}} </div> 
-        
-        </textarea>
-    </div>
-<div>
-    <p style="font-size: large;"> <b>{{first_cap}}</b></p>
-    <form class="input_form" action="{{ url_for('keep_going')}}" method="post"> 
-        <label for="keep_going" style="font-style: italic; color: chocolate;">{{second_cap}}
-            </label><br>
-        <!-- <input type="text" id="keep_going" size="40" heigth="40" name="keep_going"><br> -->
-        <textarea type="text" id="keep_going" size="40" heigth="40" name="keep_going" style="margin-top: 1em;"></textarea><br>
-        <input type="submit" name="Submit" value="Submit">
-    </form>
-</div>
-<script>
-    // repeat with the interval of 2 seconds
-    let timerId1 = setInterval(() => fetch('/get-full-story')
-      .then(response => response.text())
-      .then(text => document.getElementById("full_story").innerHTML = text), 2000);
-    
-    // after 5 seconds stop
-    setTimeout(() => { clearInterval(timerId); console.log('stop'); }, 50000);
-    </script>
-<script>
-    // repeat with the interval of 2 seconds
-    let timerId2 = setInterval(() => fetch('/get-partial-story')
-      .then(response => response.text())
-      .then(text => document.getElementById("last_story_portion").innerHTML = text), 2000);
-    
-    // after 5 seconds stop
-    setTimeout(() => { clearInterval(timerId); console.log('stop'); }, 50000);
-    </script>    
-
-
-    
-</div>
-
-<div class="main_container">
-    <div>
-        <p>Reset story</p>
-        <form action="{{ url_for('delete_files')}}" method="post">
-            <button name="forwardBtn" type="submit">Reset</button>
-        </form>
-    </div>
-</div>
-
-<div class="top_ten_container">
-    <div>
-        <p> <h2 class="blocktext" >Top 10 so far</h2></p>
-        
-        <ol>
-            <li style="margin-left: 10em; margin-right: 10em; font-size: large;">  <p class="top_ten_element" >„Du riechst gut“, flüstert Mary an Julias Ohr und legt eine Hand um sie. Julia zuckt zusammen.
-
-            „Wie hast du das riechen können?“, fragt Mary neugierig. „Du riechst nach Schweiß und Bier“, sagt Julia und versucht ein Lächeln aufzusetzen. 
-            Mary legt ihren Kopf neben Julias Schulter. „Das mag ich“, flüstert sie.</textarea><br>
-        </p> </li>
-        </ol>
-       
-</div>
-
-</body>
-=======
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,7 +7,7 @@
 <body>
 <div class="title">
      <h1 class="centered_flexbox" style="color: coral;">KAI Project</h1>
-</div>
+    </div>
 
 <div class="main_container">
     
@@ -116,12 +28,9 @@
                 </label><br>
             <!-- <input type="text" id="keep_going" size="40" heigth="40" name="keep_going"><br> -->
             <textarea type="text" id="keep_going" size="40" heigth="40" name="keep_going" style="margin-top: 1em;"></textarea><br>
-            <input type="submit" name="submit" id="submit" value="Submit" {{submit_button_status}}>
+            <input type="submit" name="submit" id="submit" value="Submit">
         </form>
     </div>
-
-
-
 </div>
 
 <div class="main_container">
@@ -148,5 +57,4 @@
 </div>
 
 </body>
->>>>>>> 25ce0c3f11a2f48fe5e5693a3e0c75a418e6db53
 </html>

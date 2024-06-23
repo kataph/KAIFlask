@@ -8,6 +8,8 @@ if GERMAN_MINSTREL_ADDRESS == "":
     raise NotImplementedError("Please remember to insert a non-empty address")
 
 import requests
+import sys
+import time
 
 
 class Model:
@@ -39,6 +41,21 @@ class LocalGermanMinstrel(Model):
     def __call__(self, prompt) -> str:
         raise NotImplementedError("Implemented on colab")
 
+    
+def slow_print(input_str):
+    for c in input_str:
+        sys.stdout.write(c)
+        sys.stdout.flush()
+        time.sleep(0.1)
+    sys.stdout.write('\n')
+
+def ask_model_test(instruction, system = ''):
+    original = sys.stdout
+    sys.stdout = open('last_story_portion.txt', 'w')
+    slow_print("This is a slowly printed string for texting purposes")
+    sys.stdout = original
+    return "xxxxx yyyyyyyyyyy zzzzzzz"
+
 class DummyModel(Model): # to use for testing 
-    def __call__(context_prompt, user_request) -> str:
-        return "Xxx xxx xxx."
+    def __call__(self, instruction, system = ''):
+        return ask_model_test(instruction, system)
